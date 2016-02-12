@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MAIS DOU MAIS DOU MAIS D&apos;OU"
+        android:text="MAIS DOU MafezAIS DOU MAIS D&apos;OU"
         android:id="@+id/button"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
