@@ -9,9 +9,9 @@ import android.view.MenuItem;
 public class TestGithub2 extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_github2);
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_test_github2);
     }
 
     @Override
