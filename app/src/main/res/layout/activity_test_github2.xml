@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="VCI UN TEXTE LARGE AFIN DE TESTER LE COMMIT"
+        android:text="Test de commit"
         android:id="@+id/textView2"
         android:layout_below="@+id/btnTest"
         android:layout_alignParentLeft="true"
