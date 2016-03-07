@@ -8,7 +8,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Afficher un restaurant pimp"
+        android:text="Afficher le menu"
         android:id="@+id/btnTest"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
@@ -25,16 +25,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nomRestaurant"
-        android:layout_marginTop="86dp"
-        android:layout_below="@+id/title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="sdfg" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Le restaurant :"
         android:id="@+id/label1"
@@ -43,5 +33,15 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvRestos"
+        android:layout_below="@+id/label1"
+        android:layout_alignRight="@+id/btnTest"
+        android:layout_alignEnd="@+id/btnTest"
+        android:choiceMode="singleChoice"
+        android:layout_above="@+id/btnTest" />
 
 </RelativeLayout>
