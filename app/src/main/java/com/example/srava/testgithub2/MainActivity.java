@@ -43,7 +43,7 @@ public class MainActivity extends Activity implements OnClickListener{
         button1.setOnClickListener((OnClickListener) this); // Positionnons un listener sur ce bouton
 
         Button button2=(Button)findViewById(R.id.btnTest1); // Recuperation de l'instance bouton 2
-        button1.setOnClickListener((OnClickListener) this); // Positionnons un listener sur ce bouton
+        button2.setOnClickListener((OnClickListener) this); // Positionnons un listener sur ce bouton
 
 
         String[] mStrings = {
