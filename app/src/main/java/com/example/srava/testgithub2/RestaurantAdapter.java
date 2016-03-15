@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class RestaurantAdapter extends ArrayAdapter{
 
-    List list = new ArrayList();
+    List listRestos = new ArrayList();
 
     public RestaurantAdapter(Context context, int resource) {
         super(context, resource);
@@ -25,21 +25,22 @@ public class RestaurantAdapter extends ArrayAdapter{
 
     public void add(Restaurant object){
         super.add(object);
-        list.add(object);
+        listRestos.add(object);
     }
 
     @Override
     public int getCount(){
-        return list.size();
+        return listRestos.size();
     }
 
     @Override
     public Object getItem(int position){
-        return list.get(position);
+        return listRestos.get(position);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+
         View row;
         row = convertView;
         RestaurantHolder restaurantHolder;
@@ -49,7 +50,8 @@ public class RestaurantAdapter extends ArrayAdapter{
             row = layoutInflater.inflate(R.layout.row_layout,parent,false);
             restaurantHolder = new RestaurantHolder();
             restaurantHolder.txt_name = (TextView) row.findViewById(R.id.txt_name);
-            // FAIRE POUR RESTAURANT
+            restaurantHolder.txt_ville = (TextView) row.findViewById(R.id.txt_ville);
+            restaurantHolder.txt_type = (TextView) row.findViewById(R.id.txt_type);
 
             row.setTag(restaurantHolder);
         }
@@ -58,14 +60,17 @@ public class RestaurantAdapter extends ArrayAdapter{
         }
 
         Restaurant restaurant = (Restaurant)this.getItem(position);
-        restaurantHolder.txt_name.setText(restaurant.getLIBELLE_RESTAURANT());
+        restaurantHolder.txt_name.setText((CharSequence) restaurant.getLIBELLE_RESTAURANT()
+        );
         // FAIRE POUR RESTAURANT
 
         return row;
+
+
     }
 
     static class RestaurantHolder{
-        TextView txt_name, txt_email, txt_mobile;
+        TextView txt_name, txt_ville, txt_type;
     }
 
 }

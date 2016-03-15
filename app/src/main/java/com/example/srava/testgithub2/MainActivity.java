@@ -52,22 +52,22 @@ public class MainActivity extends Activity implements OnClickListener{
         };
 
         //Creation de l'adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mStrings);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mStrings);
 
-//Recuperation du ListView present dans notre IHM
-        ListView list = (ListView)findViewById(R.id.lvRestos);
+            //Recuperation du ListView present dans notre IHM
+            ListView list = (ListView)findViewById(R.id.lvRestos);
 
 //On passe nos donnees au composant ListView
-        list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            list.setAdapter(adapter);
+            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-            @Override
-            public void onItemClick(AdapterView parentView, View childView,
-                                    int position, long id) {
-                Log.d("Debug", "item click");
-                Intent intent = new Intent(MainActivity.this, Infos.class);
-                startActivity(intent);
-            }
+                @Override
+                public void onItemClick(AdapterView parentView, View childView,
+                int position, long id) {
+                    Log.d("Debug", "item click");
+                    Intent intent = new Intent(MainActivity.this, Infos.class);
+                    startActivity(intent);
+                }
         });
     }
 

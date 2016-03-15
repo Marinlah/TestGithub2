@@ -2,15 +2,19 @@ package com.example.srava.testgithub2;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 
 public class DisplayListView extends ActionBarActivity {
@@ -20,23 +24,25 @@ public class DisplayListView extends ActionBarActivity {
     JSONArray jsonArray;
     RestaurantAdapter restaurantAdapter;
     ListView listView;
+    TextView txtTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_listview_layout);
+
         listView = (ListView) findViewById(R.id.listview);
         restaurantAdapter = new RestaurantAdapter(this,R.layout.row_layout);
         listView.setAdapter(restaurantAdapter);
         JSON_STRING = getIntent().getExtras().getString("json_data");
+        //J'ai testé, ça passe pas ni dans le try ni dans le catch
         try{
-
+            Log.d("debug","Ca passe pas dans le try");
             jsonObject = new JSONObject(JSON_STRING);
             jsonArray = jsonObject.getJSONArray("server_response");
             int count = 0;
             String LIBELLE_RESTAURANT, LIBELLE_TYPE, VILLE_RESTAURANT;
             Double LONGITUDE_RESTAURANT, LATITUDE_RESTAURANT;
-
             while(count<jsonArray.length()){
 
                 JSONObject JO = jsonArray.getJSONObject(count);
@@ -49,9 +55,10 @@ public class DisplayListView extends ActionBarActivity {
                 Restaurant restaurant = new Restaurant(LIBELLE_RESTAURANT, LIBELLE_TYPE, VILLE_RESTAURANT, LONGITUDE_RESTAURANT, LATITUDE_RESTAURANT);
                 restaurantAdapter.add(restaurant);
                 count++;
-            }
 
+            }
         }catch (JSONException e){
+            Log.d("debug","Ca passe dans le catch");
             e.printStackTrace();
         }
     }
