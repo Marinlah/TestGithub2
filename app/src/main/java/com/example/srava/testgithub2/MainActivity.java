@@ -1,10 +1,13 @@
 package com.example.srava.testgithub2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -25,6 +28,7 @@ import java.net.URL;
 public class MainActivity extends Activity implements OnClickListener{
 
     String JSON_STRING;
+    ListView list;
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +41,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
         String[] mStrings = {
                 "AAAAAAAA", "BBBBBBBB", "CCCCCCCC", "DDDDDDDD", "EEEEEEEE",
-                "FFFFFFFF", "GGGGGGGG", "HHHHHHHH", "IIIIIIII", "JJJJJJJJ",
-                "KKKKKKKK", "LLLLLLLL", "MMMMMMMM", "NNNNNNNN", "OOOOOOOO",
-                "PPPPPPPP", "QQQQQQQQ", "RRRRRRRR", "SSSSSSSS", "TTTTTTTT",
-                "UUUUUUUU", "VVVVVVVV", "WWWWWWWW", "XXXXXXXX", "YYYYYYYY",
-                "ZZZZZZZZ"
+                "FFFFFFFF", "GGGGGGGG"
         };
 
         //Création de l'adapter
@@ -52,6 +52,16 @@ public class MainActivity extends Activity implements OnClickListener{
 
 //On passe nos données au composant ListView
         list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView parentView, View childView,
+                                    int position, long id) {
+                Log.d("Debug", "item click");
+                Intent intent = new Intent(MainActivity.this, Infos.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
