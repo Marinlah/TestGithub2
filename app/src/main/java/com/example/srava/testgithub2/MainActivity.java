@@ -38,7 +38,11 @@ public class MainActivity extends Activity implements OnClickListener{
 
 
         label1 = (TextView)findViewById(R.id.label1);
+
         Button button1=(Button)findViewById(R.id.btnTest); // Recuperation de l'instance bouton 1
+        button1.setOnClickListener((OnClickListener) this); // Positionnons un listener sur ce bouton
+
+        Button button2=(Button)findViewById(R.id.btnTest1); // Recuperation de l'instance bouton 2
         button1.setOnClickListener((OnClickListener) this); // Positionnons un listener sur ce bouton
 
 
@@ -96,6 +100,9 @@ public class MainActivity extends Activity implements OnClickListener{
             getJSON(view);
             label1.setText(JSON_STRING);
         }
+        if (view.getId()==R.id.btnTest1) {
+            parseJSON(view);
+        }
     }
 
     public void getJSON(View view){
@@ -144,8 +151,21 @@ public class MainActivity extends Activity implements OnClickListener{
         protected void onPostExecute(String result) {
             TextView label1 = (TextView)findViewById(R.id.label1);
             label1.setText(result);
+            JSON_STRING = result;
         }
     }
+
+    public void parseJSON(View view){
+        if(JSON_STRING == null){
+            Toast.makeText(getApplicationContext(),"First Get JSON",Toast.LENGTH_LONG).show();
+        }
+        else{
+            Intent intent = new Intent(this,DisplayListView.class);
+            intent.putExtra("json_data", JSON_STRING);
+            startActivity(intent);
+        }
+    }
+
 
 }
 

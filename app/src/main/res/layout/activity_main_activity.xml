@@ -10,8 +10,9 @@
         android:layout_height="wrap_content"
         android:text="Get JSON"
         android:id="@+id/btnTest"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignTop="@+id/btnTest1"
+        android:layout_alignLeft="@+id/title"
+        android:layout_alignStart="@+id/title" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,5 +44,14 @@
         android:layout_alignEnd="@+id/btnTest"
         android:choiceMode="singleChoice"
         android:layout_above="@+id/btnTest" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PARSE JSON"
+        android:id="@+id/btnTest1"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/lvRestos"
+        android:layout_toEndOf="@+id/lvRestos" />
 
 </RelativeLayout>
