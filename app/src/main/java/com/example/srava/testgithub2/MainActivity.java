@@ -27,6 +27,7 @@ import java.net.URL;
 
 public class MainActivity extends Activity implements OnClickListener{
 
+    TextView label1;
     String JSON_STRING;
     ListView list;
 
@@ -35,7 +36,9 @@ public class MainActivity extends Activity implements OnClickListener{
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main_activity);
 
-        Button button1=(Button)findViewById(R.id.btnTest); // Récupération de l'instance bouton 1
+
+        label1 = (TextView)findViewById(R.id.label1);
+        Button button1=(Button)findViewById(R.id.btnTest); // Recuperation de l'instance bouton 1
         button1.setOnClickListener((OnClickListener) this); // Positionnons un listener sur ce bouton
 
 
@@ -44,13 +47,13 @@ public class MainActivity extends Activity implements OnClickListener{
                 "FFFFFFFF", "GGGGGGGG"
         };
 
-        //Création de l'adapter
+        //Creation de l'adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mStrings);
 
-//Récupération du ListView présent dans notre IHM
+//Recuperation du ListView present dans notre IHM
         ListView list = (ListView)findViewById(R.id.lvRestos);
 
-//On passe nos données au composant ListView
+//On passe nos donnees au composant ListView
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -87,10 +90,12 @@ public class MainActivity extends Activity implements OnClickListener{
     }
     @Override
     public void onClick(View view) {
-        /*if (view.getId()==R.id.btnTest){ // C'est notre bouton ? oui, alors affichage d'un message
-            Toast.makeText(this,"Bouton 1", Toast.LENGTH_SHORT).show();
-
-        }*/
+        // C'est notre bouton ? oui, alors affichage d'un message
+/*Toast.makeText(this,"Bouton 1", Toast.LENGTH_SHORT).show();*/
+        if (view.getId()==R.id.btnTest) {
+            getJSON(view);
+            label1.setText(JSON_STRING);
+        }
     }
 
     public void getJSON(View view){
@@ -124,8 +129,6 @@ public class MainActivity extends Activity implements OnClickListener{
 
                 return stringBuilder.toString().trim();
 
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
