@@ -1,5 +1,6 @@
 package com.example.srava.testgithub2;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +18,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 
-public class DisplayListView extends ActionBarActivity {
+public class DisplayListView extends Activity {
 
     String JSON_STRING;
     JSONObject jsonObject;
@@ -36,10 +37,13 @@ public class DisplayListView extends ActionBarActivity {
         listView.setAdapter(restaurantAdapter);
         JSON_STRING = getIntent().getExtras().getString("json_data");
         //J'ai testé, ça passe pas ni dans le try ni dans le catch
+        Log.d("debug",JSON_STRING);
+
         try{
-            Log.d("debug","Ca passe pas dans le try");
+
             jsonObject = new JSONObject(JSON_STRING);
             jsonArray = jsonObject.getJSONArray("server_response");
+            Log.d("debug","Ca passe dans le try");
             int count = 0;
             String LIBELLE_RESTAURANT, LIBELLE_TYPE, VILLE_RESTAURANT;
             Double LONGITUDE_RESTAURANT, LATITUDE_RESTAURANT;
@@ -53,7 +57,11 @@ public class DisplayListView extends ActionBarActivity {
                 LATITUDE_RESTAURANT = JO.getDouble("LATITUDE_RESTAURANT");
 
                 Restaurant restaurant = new Restaurant(LIBELLE_RESTAURANT, LIBELLE_TYPE, VILLE_RESTAURANT, LONGITUDE_RESTAURANT, LATITUDE_RESTAURANT);
+
+
                 restaurantAdapter.add(restaurant);
+                Log.d("LIBELLE_RESTAURANT", restaurant.getLIBELLE_RESTAURANT());
+
                 count++;
 
             }

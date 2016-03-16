@@ -5,15 +5,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".TestGithub2">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get JSON"
-        android:id="@+id/btnTest"
-        android:layout_alignTop="@+id/btnTest1"
-        android:layout_alignLeft="@+id/title"
-        android:layout_alignStart="@+id/title" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Le restaurant :"
+        android:text="Les restaurants :"
         android:id="@+id/label1"
         android:layout_below="@+id/title"
         android:layout_alignParentLeft="true"
@@ -40,18 +31,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/lvRestos"
         android:layout_below="@+id/label1"
-        android:layout_alignRight="@+id/btnTest"
-        android:layout_alignEnd="@+id/btnTest"
         android:choiceMode="singleChoice"
-        android:layout_above="@+id/btnTest" />
+        android:layout_above="@+id/btnAfficher" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PARSE JSON"
-        android:id="@+id/btnTest1"
+        android:text="Afficher les restaurants"
+        android:id="@+id/btnAfficher"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/lvRestos"
-        android:layout_toEndOf="@+id/lvRestos" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

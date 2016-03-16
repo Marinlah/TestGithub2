@@ -10,19 +10,11 @@ public class Restaurant {
 
     public Restaurant(String LIBELLE_RESTAURANT, String LIBELLE_TYPE, String VILLE_RESTAURANT, Double LONGITUDE_RESTAURANT, Double LATITUDE_RESTAURANT){
 
-        this.setLIBELLE_RESTAURANT(this.LIBELLE_RESTAURANT);
-        this.setLIBELLE_TYPE(this.LIBELLE_TYPE);
-        this.setVILLE_RESTAURANT(this.VILLE_RESTAURANT);
-        this.setLONGITUDE_RESTAURANT(this.LONGITUDE_RESTAURANT);
-        this.setLATITUDE_RESTAURANT(this.LATITUDE_RESTAURANT);
-    }
-
-    public String getLIBELLE_TYPE() {
-        return LIBELLE_TYPE;
-    }
-
-    public void setLIBELLE_TYPE(String LIBELLE_TYPE) {
-        this.LIBELLE_TYPE = LIBELLE_TYPE;
+        this.setLIBELLE_RESTAURANT(LIBELLE_RESTAURANT);
+        this.setLIBELLE_TYPE(LIBELLE_TYPE);
+        this.setVILLE_RESTAURANT(VILLE_RESTAURANT);
+        this.setLONGITUDE_RESTAURANT(LONGITUDE_RESTAURANT);
+        this.setLATITUDE_RESTAURANT(LATITUDE_RESTAURANT);
     }
 
     public String getLIBELLE_RESTAURANT() {
@@ -31,6 +23,14 @@ public class Restaurant {
 
     public void setLIBELLE_RESTAURANT(String LIBELLE_RESTAURANT) {
         this.LIBELLE_RESTAURANT = LIBELLE_RESTAURANT;
+    }
+
+    public String getLIBELLE_TYPE() {
+        return LIBELLE_TYPE;
+    }
+
+    public void setLIBELLE_TYPE(String LIBELLE_TYPE) {
+        this.LIBELLE_TYPE = LIBELLE_TYPE;
     }
 
     public String getVILLE_RESTAURANT() {

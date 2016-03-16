@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class RestaurantAdapter extends ArrayAdapter{
 
-    List listRestos = new ArrayList();
+    List listRestaurants = new ArrayList();
 
     public RestaurantAdapter(Context context, int resource) {
         super(context, resource);
@@ -25,17 +25,17 @@ public class RestaurantAdapter extends ArrayAdapter{
 
     public void add(Restaurant object){
         super.add(object);
-        listRestos.add(object);
+        listRestaurants.add(object);
     }
 
     @Override
     public int getCount(){
-        return listRestos.size();
+        return listRestaurants.size();
     }
 
     @Override
     public Object getItem(int position){
-        return listRestos.get(position);
+        return listRestaurants.get(position);
     }
 
     @Override
@@ -60,12 +60,11 @@ public class RestaurantAdapter extends ArrayAdapter{
         }
 
         Restaurant restaurant = (Restaurant)this.getItem(position);
-        restaurantHolder.txt_name.setText((CharSequence) restaurant.getLIBELLE_RESTAURANT()
-        );
+
+        restaurantHolder.txt_name.setText(restaurant.getLIBELLE_RESTAURANT());
         // FAIRE POUR RESTAURANT
 
         return row;
-
 
     }
 

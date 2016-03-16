@@ -32,42 +32,38 @@ public class MainActivity extends Activity implements OnClickListener{
     ListView list;
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main_activity);
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main_activity);
 
         label1 = (TextView)findViewById(R.id.label1);
 
-        Button button1=(Button)findViewById(R.id.btnTest); // Recuperation de l'instance bouton 1
+        Button button1=(Button)findViewById(R.id.btnAfficher); // Recuperation de l'instance bouton 1
         button1.setOnClickListener((OnClickListener) this); // Positionnons un listener sur ce bouton
-
-        Button button2=(Button)findViewById(R.id.btnTest1); // Recuperation de l'instance bouton 2
-        button2.setOnClickListener((OnClickListener) this); // Positionnons un listener sur ce bouton
 
 
         String[] mStrings = {
-                "AAAAAAAA", "BBBBBBBB", "CCCCCCCC", "DDDDDDDD", "EEEEEEEE",
-                "FFFFFFFF", "GGGGGGGG"
+            "AAAAAAAA", "BBBBBBBB", "CCCCCCCC", "DDDDDDDD", "EEEEEEEE",
+            "FFFFFFFF", "GGGGGGGG"
         };
 
         //Creation de l'adapter
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mStrings);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mStrings);
 
-            //Recuperation du ListView present dans notre IHM
-            ListView list = (ListView)findViewById(R.id.lvRestos);
+        //Recuperation du ListView present dans notre IHM
+        ListView list = (ListView)findViewById(R.id.lvRestos);
 
-//On passe nos donnees au composant ListView
-            list.setAdapter(adapter);
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //On passe nos donnees au composant ListView
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                @Override
-                public void onItemClick(AdapterView parentView, View childView,
-                int position, long id) {
-                    Log.d("Debug", "item click");
-                    Intent intent = new Intent(MainActivity.this, Infos.class);
-                    startActivity(intent);
-                }
+            @Override
+            public void onItemClick(AdapterView parentView, View childView,
+                                    int position, long id) {
+                Log.d("Debug", "item click");
+                Intent intent = new Intent(MainActivity.this, Infos.class);
+                startActivity(intent);
+            }
         });
     }
 
@@ -96,11 +92,9 @@ public class MainActivity extends Activity implements OnClickListener{
     public void onClick(View view) {
         // C'est notre bouton ? oui, alors affichage d'un message
 /*Toast.makeText(this,"Bouton 1", Toast.LENGTH_SHORT).show();*/
-        if (view.getId()==R.id.btnTest) {
+        if (view.getId()==R.id.btnAfficher) {
             getJSON(view);
             label1.setText(JSON_STRING);
-        }
-        if (view.getId()==R.id.btnTest1) {
             parseJSON(view);
         }
     }
