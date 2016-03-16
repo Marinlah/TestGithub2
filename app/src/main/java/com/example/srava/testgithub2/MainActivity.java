@@ -58,13 +58,13 @@ public class MainActivity extends Activity implements OnClickListener{
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
-            public void onItemClick(AdapterView parentView, View childView,
-                                    int position, long id) {
+            public void onItemClick(AdapterView parentView, View childView, int position, long id) {
                 Log.d("Debug", "item click");
                 Intent intent = new Intent(MainActivity.this, Infos.class);
                 startActivity(intent);
             }
         });
+        getJSON();
     }
 
     @Override
@@ -91,15 +91,13 @@ public class MainActivity extends Activity implements OnClickListener{
     @Override
     public void onClick(View view) {
         // C'est notre bouton ? oui, alors affichage d'un message
-/*Toast.makeText(this,"Bouton 1", Toast.LENGTH_SHORT).show();*/
+        /*Toast.makeText(this,"Bouton 1", Toast.LENGTH_SHORT).show();*/
         if (view.getId()==R.id.btnAfficher) {
-            getJSON(view);
-            label1.setText(JSON_STRING);
             parseJSON(view);
         }
     }
 
-    public void getJSON(View view){
+    public void getJSON(){
         new BackgroundTask().execute();
     }
 
@@ -143,8 +141,6 @@ public class MainActivity extends Activity implements OnClickListener{
 
         @Override
         protected void onPostExecute(String result) {
-            TextView label1 = (TextView)findViewById(R.id.label1);
-            label1.setText(result);
             JSON_STRING = result;
         }
     }
